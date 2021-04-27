@@ -28,7 +28,7 @@ const forms = () => {
         });
         upload.forEach(item => {
             item.previousElementSibling.textContent = "Файл не выбран";
-        })
+        });
     };
 
     upload.forEach(item => {
@@ -39,8 +39,8 @@ const forms = () => {
             arr[0].length > 10 ? dots = "..." : dots = ".";
             const name = arr[0].substring(0, 10) + dots + arr[1];
             item.previousElementSibling.textContent = name;
-        })
-    })
+        });
+    });
 
     form.forEach(item => {
         item.addEventListener('submit', (e) => {
@@ -67,7 +67,7 @@ const forms = () => {
             const formData = new FormData(item);
             let api;
             item.closest('.popup-design') || item.classList.contains("calc__form") ? api = path.designer : api = path.question;
-            console.log(api)
+            console.log(api);
 
             postData(api, formData)
                 .then(res => {
